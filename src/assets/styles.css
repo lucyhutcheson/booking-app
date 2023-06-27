@@ -1,0 +1,46 @@
+.page {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+h4 {
+  color: #495E57;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.33s ease-in-out;
+  display: inline-block;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #495E57;
+  border-color: #495E57;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 0;
+}
+
+header a {
+  padding: 0 1em;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: top;
+}
+
+footer nav, footer .social {
+  display: flex;
+  flex-direction: column;
+}
