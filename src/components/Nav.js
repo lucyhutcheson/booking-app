@@ -5,23 +5,23 @@ const links = [
   },
   {
     title: 'About',
-    url: '#'
+    url: '/about'
   },
   {
     title: 'Menu',
-    url: '#'
+    url: '/menu'
   },
   {
     title: 'Reservations',
-    url: '#'
+    url: '/booking'
   },
   {
     title: 'Order Online',
-    url: '#'
+    url: '/order'
   },
   {
     title: 'Login',
-    url: '#'
+    url: '/login'
   },
 ];
 

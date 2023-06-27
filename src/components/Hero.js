@@ -10,7 +10,7 @@ const Hero = () => {
           <p className='lead white'>
             We are a family owned Mediterranean restaurant, focused on traditional recipes served with a modern twist.
           </p>
-          <a href='/' className='button'>Reserve a Table</a>
+          <a href='/booking' className='button'>Reserve a Table</a>
         </div>
         <div>
           <img src={heroImage} alt='restaurant food' className='br-md' />
