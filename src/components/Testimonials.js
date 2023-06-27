@@ -1,4 +1,4 @@
-import Card from './Testimonials_Card';
+import Card from './TestimonialsCard';
 
 const ratings = [
   {

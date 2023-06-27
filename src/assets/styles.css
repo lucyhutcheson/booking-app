@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-  max-width: 900px;
+  max-width: 90%;
   margin: 0 auto;
 }
 
@@ -27,10 +27,6 @@ body {
 .flex {
   display: flex;
   flex-wrap: wrap;
-}
-
-.flex > * {
-  width: 100%;
 }
 
 .flex-row {
@@ -136,7 +132,8 @@ a:hover {
 }
 
 a.button {
-  display: inline-block;
+  display: block;
+  text-align: center;
   background-color: #F4CE14;
   color: black;
   font-size: 1.125em;
@@ -155,8 +152,19 @@ header {
   padding: 1em 0;
 }
 
-header a {
-  margin: 0 1em;
+header img {
+  width: 300px;
+  margin: 0 auto;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+header nav a {
+  margin: 0.5em 1em;
 }
 
 .hero:before {
@@ -171,22 +179,24 @@ header a {
 }
 
 .hero .text {
-  padding: 3em 4em 6em 0em;
+  padding: 1em 0;
 }
 
 .hero img {
   position: relative;
-  transform: translateY(4em);
+  margin-bottom: 3em;
+  max-width: 100%;
 }
 
 .specials .card-container {
   margin: 1em 0 5em;
+  gap: 1em;
 }
 
 .specials .card {
   background-color: #EDEFEE;
   flex-shrink: 1;
-  width: 31%;
+  width: 100%;
 }
 
 .specials img {
@@ -215,7 +225,7 @@ header a {
 
 .testimonials .card {
   padding: 1em;
-  width: 23%;
+  width: 100%;
 }
 
 .testimonials .star {
@@ -239,18 +249,11 @@ header a {
 }
 
 .about .images img {
-  max-width: 250px;
+  max-width: 100%;
+  margin-bottom: 1em;
+  border-radius: 16px;
 }
 
-.about .images .image-1 {
-  margin-top: 5em;
-}
-
-.about .images .image-2 {
-  margin-left: -3em;
-  margin-top: -5em;
-  box-shadow: 0px 5px 15px rgba(50,50,50,0.5);
-}
 
 footer {
   background-color: black;
@@ -266,15 +269,81 @@ footer nav, footer .social {
 
 footer a {
   color: white;
-  line-height: 1.5;
+  line-height: 1.75;
+  font-weight: normal;
+  margin-left: 0;
 }
 
 footer a:hover {
   color: #F4CE14;
 }
 
+footer .container > div {
+  margin-bottom: 1em;
+}
+
+@media screen and (max-width: 600px) {
+  .flex > *:not(img) {
+    width: 100%;
+  }
+}
+
 @media screen and (min-width: 600px) {
+  nav {
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+  }
+
+  header nav a {
+    margin: 0 1em;
+  }
+
+  a.button {
+    display: inline;
+  }
+
+  .container {
+    max-width: 900px;
+  }
+
   .flex {
     flex-wrap: nowrap;
   }
+
+  header img {
+    width: auto;
+    margin: 0;
+  }
+
+  .hero img {
+    transform: translateY(4em);
+    margin-bottom: 7em;
+    max-width: unset;
+  }
+
+  .hero .text {
+    padding: 3em 4em 6em 0em;
+  }
+
+  .specials .card {
+    width: 31%;
+  }
+
+  .testimonials .card {
+    width: 23%;
+  }
+  .about .images img {
+    max-width: 250px;
+  }
+  
+  .about .images .image-1 {
+    margin-top: 5em;
+  }
+  
+  .about .images .image-2 {
+    margin-left: -3em;
+    margin-top: -5em;
+    box-shadow: 0px 5px 15px rgba(50,50,50,0.5);
+  }
+  
 }

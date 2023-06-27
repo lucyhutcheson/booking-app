@@ -1,6 +1,14 @@
+import Header from '../components/Header'
+import BookingForm from '../components/BookingForm'
+import Footer from '../components/Footer'
+
 const Booking = () => {
   return (
-    <h1>Booking</h1>
+    <div className='page'>
+      <Header />
+      <BookingForm />
+      <Footer />
+    </div>
   )
 };
 

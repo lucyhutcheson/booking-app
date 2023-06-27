@@ -29,8 +29,8 @@ const Footer = () => {
         <div>
           <h4>Contact</h4>
           <p>123 Main St<br/>City, ST 12345</p>
-          <p>Phone: (123) 456-7890</p>
-          <p>Email: <a href='mailto:hello@littlelemon.com'>hello@littlelemon.co</a></p>
+          <p>(123) 456-7890</p>
+          <p><a href='mailto:hello@littlelemon.com'>hello@littlelemon.co</a></p>
         </div>
         <div className='social'>
           <h4>Social Media Links</h4>

@@ -1,4 +1,4 @@
-import Card from './Specials_Card';
+import Card from './SpecialsCard';
 
 const specials = [
   {
