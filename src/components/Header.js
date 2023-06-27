@@ -1,11 +1,13 @@
-import logo from '../assets/Logo.svg';
+import logo from '../assets/logo.svg';
 import Nav from './Nav';
 
 const Header = () => {
   return (
     <header>
-      <img src={logo} alt='Little Lemon logo' />
-      <Nav />
+      <div className='container flex flex-row justify-between align-center'>
+        <img src={logo} alt='Little Lemon logo' />
+        <Nav />
+      </div>
     </header>
   )
 };
