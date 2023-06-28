@@ -1,3 +1,4 @@
+import React from 'react';
 import star from '../assets/star.png';
 
 const Card = ({ props }) => {
@@ -9,11 +10,11 @@ const Card = ({ props }) => {
         return index < props.stars ? <img key={index} className='star' src={star} alt='star icon' /> : null;
       })}
       </div>
-      <div className='image'>
-        <div className='heading flex flex-row justify-between align-center'>
-          <img src={require(`../assets/${props.image}.jpg`)} alt={props.title} />
-          <strong>{props.name}</strong>
-        </div>
+      <div className='image flex flex-row justify-between align-center'>
+        <img src={require(`../assets/${props.image}.jpg`)} alt={props.title} />
+        <strong>{props.name}</strong>
+      </div>
+      <div className='text'>
         <p>"{props.review}"</p>
       </div>
     </div>

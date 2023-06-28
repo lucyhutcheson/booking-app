@@ -1,3 +1,4 @@
+import React from 'react';
 import scooter from '../assets/icon-scooter.svg';
 
 const Card = ({ props }) => {
@@ -10,7 +11,7 @@ const Card = ({ props }) => {
           <span className='price'>{props.price}</span>
         </div>
         <p>{props.description}</p>
-        <a href='/delivery'>Order a delivery &nbsp; <img src={scooter} alt='scooter icon' /></a>
+        <a href='/delivery'>Order a delivery&nbsp;<img src={scooter} className='icon' alt='scooter icon' /></a>
       </div>
     </div>
   )

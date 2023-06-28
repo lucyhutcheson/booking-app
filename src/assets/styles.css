@@ -12,6 +12,11 @@ body {
   margin: 0 auto;
 }
 
+.container.narrow {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
 .overflow-hidden {
   overflow: hidden;
 }
@@ -111,10 +116,12 @@ h4 {
 
 p {
   line-height: 1.6;
+  margin: 1em 0;
 }
 
 .lead {
   font-size: 1.125em;
+  margin: 1em 0 2em;
 }
 
 a {
@@ -131,19 +138,22 @@ a:hover {
   border-color: #495E57;
 }
 
-a.button {
+a.button, input[type="submit"] {
+  border: 0 none;
   display: block;
   text-align: center;
   background-color: #F4CE14;
   color: black;
   font-size: 1.125em;
+  font-family: 'Karla', sans-serif;
+  font-weight: 600;
   border-radius: 0.5em;
   padding: 0.5em 1em;
   transition: all 0.33s ease-in-out;
   margin: 1em 0;
 }
 
-a.button:hover {
+a.button:hover, input[type="submit"]:hover {
   background-color: #495E57;
   color: white;
 }
@@ -188,6 +198,10 @@ header nav a {
   max-width: 100%;
 }
 
+.hero a.button:hover {
+  background-color: #333;
+}
+
 .specials .card-container {
   margin: 1em 0 5em;
   gap: 1em;
@@ -199,7 +213,7 @@ header nav a {
   width: 100%;
 }
 
-.specials img {
+.specials img:not(.icon) {
   max-width: 100%;
 }
 
@@ -209,6 +223,10 @@ header nav a {
 
 .specials .details {
   padding: 2em;
+}
+
+.specials .details .icon {
+  display: inline;
 }
 
 .testimonials {
@@ -233,11 +251,14 @@ header nav a {
   height: 20px;
 }
 
+.testimonials .image {
+  margin-top: 1em;
+}
+
 .testimonials .image img {
   width: 80px;
   border-radius: 80px;
   margin-right: 10px;
-  margin-top: 1em;
 }
 
 .about {
@@ -253,7 +274,6 @@ header nav a {
   margin-bottom: 1em;
   border-radius: 16px;
 }
-
 
 footer {
   background-color: black;
@@ -282,6 +302,14 @@ footer .container > div {
   margin-bottom: 1em;
 }
 
+.booking .container {
+  padding: 4em 0;
+}
+
+.booking .container form {
+  padding: 2em 0;
+}
+
 @media screen and (max-width: 600px) {
   .flex > *:not(img) {
     width: 100%;
@@ -304,6 +332,11 @@ footer .container > div {
 
   .container {
     max-width: 900px;
+  }
+
+  .container.narrow {
+    max-width: 600px;
+    margin: 0 auto;
   }
 
   .flex {
@@ -332,18 +365,19 @@ footer .container > div {
   .testimonials .card {
     width: 23%;
   }
+
   .about .images img {
     max-width: 250px;
   }
-  
+
   .about .images .image-1 {
     margin-top: 5em;
   }
-  
+
   .about .images .image-2 {
     margin-left: -3em;
     margin-top: -5em;
     box-shadow: 0px 5px 15px rgba(50,50,50,0.5);
   }
-  
+
 }

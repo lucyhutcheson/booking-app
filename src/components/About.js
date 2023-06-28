@@ -1,3 +1,4 @@
+import React from 'react';
 import ownerImg1 from '../assets/owners-1.jpg';
 import ownerImg2 from '../assets/owners-2.jpg';
 
