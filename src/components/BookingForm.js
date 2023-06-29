@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useFormik } from "formik";
 import {
   Button,
@@ -20,6 +20,7 @@ const BookingForm = ({ props, bookingAction, handleDateSelected }) => {
   const [selectedDate, setSelectedDate] = useState(defaultDate);
 
   const handleOnChange = (event) => {
+    event.preventDefault();
     if (event.target.id === 'date') {
       setSelectedDate(event.target.value);
       handleDateSelected(event.target.value);
@@ -45,7 +46,7 @@ const BookingForm = ({ props, bookingAction, handleDateSelected }) => {
     validationSchema: Yup.object({
       date: Yup.date().required('Required'),
       time: Yup.string().required('Required'),
-      guests: Yup.number().required('Required'),
+      guests: Yup.string().required('Required'),
       firstName: Yup.string().min(5, 'Must be at least 5 characters').required('Required'),
       email: Yup.string().email('Invalid email address').required('Required'),
       phone: Yup.string().min(10, 'Must be at least 10 characters').required('Required'),
@@ -75,7 +76,6 @@ const BookingForm = ({ props, bookingAction, handleDateSelected }) => {
                 <FormLabel htmlFor="date">Choose Date</FormLabel>
                 <Input
                   placeholder="Select Date"
-                  size="md"
                   id="date"
                   name="date"
                   type="date"
@@ -100,7 +100,7 @@ const BookingForm = ({ props, bookingAction, handleDateSelected }) => {
                 <FormLabel htmlFor="guests">Number of guests</FormLabel>
                 <HStack maxW='320px'>
                   <Button {...dec}>-</Button>
-                  <Input {...input} id="guests" />
+                  <Input {...input} id="guests" required />
                   <Button {...inc}>+</Button>
                 </HStack>
                 <FormErrorMessage>{formik.errors.guests}</FormErrorMessage>
@@ -153,7 +153,7 @@ const BookingForm = ({ props, bookingAction, handleDateSelected }) => {
                 <FormErrorMessage>{formik.errors.phone}</FormErrorMessage>
               </FormControl>
 
-              <Button type="submit" width="full">
+              <Button color={'#000'} backgroundColor={'#F4CE14'} type="submit" width="full" role="button" aria-label="On Click">
                 Make Your Reservation
               </Button>
             </VStack>
