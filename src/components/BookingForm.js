@@ -39,7 +39,6 @@ const BookingForm = ({ props, bookingAction, handleDateSelected }) => {
       phone: '',
     },
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
       bookingAction(values);
       formik.resetForm();
     },

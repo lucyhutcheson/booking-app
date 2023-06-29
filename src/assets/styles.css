@@ -281,6 +281,11 @@ footer {
   padding: 3em 0;
 }
 
+footer img {
+  margin-top: 0.75em;
+  max-width: 100px;
+}
+
 footer nav, footer .social {
   display: flex;
   flex-direction: column;
@@ -303,7 +308,7 @@ footer .container > div {
 }
 
 .booking .container {
-  padding: 4em 0;
+  padding: 4em 2em;
 }
 
 .booking .container form {

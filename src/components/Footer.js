@@ -1,5 +1,6 @@
 import React from 'react';
 import Nav from './Nav';
+import logo from '../assets/logo-footer.png';
 
 const socialLinks = [
   {
@@ -21,7 +22,7 @@ const Footer = () => {
     <footer>
       <div className='container flex flex-row justify-around align-start'>
         <div>
-          [ FOOTER LOGO ]
+          <a href='/'><img src={logo} alt="Little Lemon logo" /></a>
         </div>
         <div>
           <h4>Doormat Navigation</h4>
