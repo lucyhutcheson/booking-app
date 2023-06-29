@@ -19,6 +19,8 @@ describe("Booking Form", () => {
         const handleSubmit = jest.fn();
         render(<BookingForm onSubmit={handleSubmit} />);
 
+        const dateInput = screen.getByPlaceholderText(/Select Date/i);
+        fireEvent.change(dateInput, { target: { value: "0"}});
 
         const submitButton = screen.getByRole('button');
         fireEvent.click(submitButton);
