@@ -12,10 +12,10 @@ describe('Booking Form', () => {
 
   test('returns new state for "get_times" type', () => {
 
-    // const initialState = [1];
-    // const updateAction = {type: 'get_times', newState: fetchAPI(new Date()) };
-    // const updatedState = updateTimes(initialState, updateAction);
-    // expect(updatedState).toBeGreaterThan(1);
+    const initialState = [1];
+    const updateAction = {type: 'get_times', newState: fetchAPI(new Date()) };
+    const updatedState = updateTimes(initialState, updateAction);
+    expect(updatedState).toBeGreaterThan(1);
 
     // const updateTimes = getTimes(new Date());
     // expect(updateTimes).not.toBe('');
