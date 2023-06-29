@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState } from 'react';
 import { useFormik } from "formik";
 import {
   Button,
@@ -16,21 +16,15 @@ import * as Yup from 'yup';
 const BookingForm = ({ props, bookingAction, handleDateSelected }) => {
 
   // Handle dynamic time availablity based on selected date
-  const inputTimeRef = useRef();
-  const inputDateRef = useRef();
   const defaultDate = new Date().toLocaleDateString('en-CA');
   const [selectedDate, setSelectedDate] = useState(defaultDate);
 
   const handleOnChange = (event) => {
-    console.log("Form::onChange", event);
     if (event.target.id === 'date') {
       setSelectedDate(event.target.value);
+      handleDateSelected(event.target.value);
     }
   };
-
-  useEffect(() => {
-    handleDateSelected(selectedDate);
-  }, [selectedDate])
 
   // Setup form functionality with Formik
   const formik = useFormik({
@@ -52,9 +46,9 @@ const BookingForm = ({ props, bookingAction, handleDateSelected }) => {
       date: Yup.date().required('Required'),
       time: Yup.string().required('Required'),
       guests: Yup.number().required('Required'),
-      firstName: Yup.string().required('Required'),
+      firstName: Yup.string().min(5, 'Must be at least 5 characters').required('Required'),
       email: Yup.string().email('Invalid email address').required('Required'),
-      phone: Yup.string().required('Required'),
+      phone: Yup.string().min(10, 'Must be at least 10 characters').required('Required'),
       occasion: Yup.string().required('Required'),
     })
   });
@@ -71,7 +65,6 @@ const BookingForm = ({ props, bookingAction, handleDateSelected }) => {
   const dec = getDecrementButtonProps()
   const input = getInputProps()
 
-
   return (
     <main className='booking bg-green white'>
       <div className='container narrow'>
@@ -86,8 +79,7 @@ const BookingForm = ({ props, bookingAction, handleDateSelected }) => {
                   id="date"
                   name="date"
                   type="date"
-                  ref={inputDateRef}
-                  value={formik.values.date}
+                  value={selectedDate}
                   {...formik.getFieldProps("date")}
                 />
                 <FormErrorMessage>{formik.errors.date}</FormErrorMessage>
@@ -97,7 +89,6 @@ const BookingForm = ({ props, bookingAction, handleDateSelected }) => {
                 <Select
                   id="time"
                   name="time"
-                  ref={inputTimeRef}
                   placeholder='Select time'
                   {...formik.getFieldProps("time")}
                 >
@@ -108,9 +99,9 @@ const BookingForm = ({ props, bookingAction, handleDateSelected }) => {
               <FormControl isInvalid={formik.touched.guests && formik.errors.guests}>
                 <FormLabel htmlFor="guests">Number of guests</FormLabel>
                 <HStack maxW='320px'>
-                  <Button {...inc}>+</Button>
-                  <Input {...input} id="guests" />
                   <Button {...dec}>-</Button>
+                  <Input {...input} id="guests" />
+                  <Button {...inc}>+</Button>
                 </HStack>
                 <FormErrorMessage>{formik.errors.guests}</FormErrorMessage>
               </FormControl>
@@ -126,7 +117,6 @@ const BookingForm = ({ props, bookingAction, handleDateSelected }) => {
                   <option value='Graduation'>Graduation</option>
                 </Select>
               </FormControl>
-
               <FormControl isInvalid={formik.touched.firstName && formik.errors.firstName}>
                 <FormLabel htmlFor="firstName">Name</FormLabel>
                 <Input
@@ -155,14 +145,13 @@ const BookingForm = ({ props, bookingAction, handleDateSelected }) => {
                 <Input
                   id="phone"
                   name="phone"
-                  type="numeric"
+                  type="tel"
                   placeholder='123-456-7890'
                   value={formik.values.phone}
                   {...formik.getFieldProps("phone")}
                 />
-                <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
+                <FormErrorMessage>{formik.errors.phone}</FormErrorMessage>
               </FormControl>
-
 
               <Button type="submit" width="full">
                 Make Your Reservation
